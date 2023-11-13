@@ -7,6 +7,8 @@ import { addItems, getItemPreview, getItems,DeleteProduct, update ,getsubcategor
 import { addtocart, getCartItems,decreaseCartQuantity,
      totalamount ,SetStockOfProduct} from '../controller/CartController.js';
 import {addtorders, getorderofUser, getorders} from '../controller/orderController.js'
+import { ApproveDeliveryPerson, addDelivery, checkifexist, getAllDeliveryPersons } from '../controller/DeliveryController.js';
+
 
 cloudinary.config({
     cloud_name:'saemarora',
@@ -35,6 +37,9 @@ route.post('/setstock/:id', SetStockOfProduct);
 route.post('/orders/:Price/:personName/:googleId', addtorders);
 route.get('/orders', getorders);
 route.get('/order/:id', getorderofUser);
-
+route.get('/exist/:googleId', checkifexist);
+route.post('/addDelivery', addDelivery);
+route.get('/getAllDeliveryPersons', getAllDeliveryPersons);
+route.get('/ApproveDeliveryPerson/:googleId/:check', ApproveDeliveryPerson);
 
 export default route;
